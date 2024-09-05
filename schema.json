@@ -18,6 +18,12 @@
         "key": "showValue",
         "label": "Display value",
         "defaultValue": true
+      },
+      {
+        "type": "boolean",
+        "key": "showQR",
+        "label": "QR",
+        "defaultValue": true
       }
     ]
   }
