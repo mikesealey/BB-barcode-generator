@@ -1,0 +1,30 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "barcode-generator",
+    "friendlyName": "Barcode Generator",
+    "description": "A component that generates barcodes and QR codes", 
+    "icon": "Vignette",
+    "settings": [
+      {
+        "type": "text",
+        "key": "value",
+        "label": "Value",
+        "defaultValue": "1234567890"
+      },
+      {
+        "type": "boolean",
+        "key": "QRCode",
+        "label": "QR Code",
+        "defaultValue": false
+      },
+      {
+        "type": "boolean",
+        "key": "showValue",
+        "label": "Display value",
+        "defaultValue": true
+      }
+    ]
+  }
+}
