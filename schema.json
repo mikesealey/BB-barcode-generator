@@ -38,17 +38,15 @@
         "defaultValue": "#000"
       },
       {
-        "type": "color",
-        "label": "Secondary color",
-        "key": "secColor",
-        "defaultValue": "#fff"
-      },
-      {
         "type": "select",
         "label": "Size",
         "key": "size",
         "defaultValue": 200,
         "options": [
+          {
+            "label": "X Small",
+            "value": 75
+          },
           {
             "label": "Small",
             "value": 150

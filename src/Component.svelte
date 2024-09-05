@@ -3,14 +3,14 @@
   import { onMount, afterUpdate } from "svelte";
   import JsBarcode from "jsbarcode";
 	import { createQrSvgString, createQrSvgDataUrl } from '@svelte-put/qr';
-  
+  import '@spectrum-css/vars/dist/spectrum-global.css';
+
   export let value;
   export let showQR;
   export let showValue;
   export let customLogo;
   export let size;
   export let primColor;
-  export let secColor;
 
   const { styleable } = getContext("sdk");
   const component = getContext("component");
@@ -25,8 +25,9 @@
       JsBarcode("#barcode", value, {
         displayValue: showValue,
         width: barcodeSize,
-        lineColor: primColor,
-        background: secColor
+        height: size,
+        lineColor: "black",
+        background: "white"
       });
     }
   };
@@ -53,7 +54,6 @@ console.log("generating QR code")
 </script>
 
 <div class="overall" use:styleable={$component.styles}>
-  <p>{primColor} {secColor}</p>
   {#if value}
     {#if showQR}
     <div>
@@ -62,7 +62,6 @@ console.log("generating QR code")
         moduleFill: primColor, 
         anchorOuterFill: primColor, 
         anchorInnerFill: primColor, 
-        backgroundFill: secColor, 
         width: size, 
         height: size
         })}
