@@ -15,12 +15,6 @@
       },
       {
         "type": "boolean",
-        "key": "QRCode",
-        "label": "QR Code",
-        "defaultValue": false
-      },
-      {
-        "type": "boolean",
         "key": "showValue",
         "label": "Display value",
         "defaultValue": true

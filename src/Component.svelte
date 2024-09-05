@@ -5,7 +5,6 @@
 
 
   export let value
-  export let QRCode
   export let showValue
 
   const { styleable } = getContext("sdk")
@@ -35,10 +34,5 @@
 </script>
 
 <div use:styleable={$component.styles}>
-  Value = {value}.
-  QRCode = {QRCode}.
-  showValue = {showValue}
-  
   <img id="barcode" alt="barcode {showValue ? value : ""}"/>
-  
 </div>
