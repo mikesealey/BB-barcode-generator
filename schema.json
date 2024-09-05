@@ -3,7 +3,7 @@
   "metadata": {},
   "schema": {
     "name": "barcode-generator",
-    "friendlyName": "Barcode Generator",
+    "friendlyName": "Barcode/QR Generator",
     "description": "A component that generates barcodes and QR codes", 
     "icon": "Vignette",
     "settings": [
@@ -11,7 +11,7 @@
         "type": "text",
         "key": "value",
         "label": "Value",
-        "defaultValue": "1234567890"
+        "defaultValue": "https://docs.budibase.com/"
       },
       {
         "type": "boolean",
@@ -24,6 +24,56 @@
         "key": "showQR",
         "label": "QR",
         "defaultValue": true
+      },
+      {
+        "type": "text",
+        "key": "customLogo",
+        "label": "Logo",
+        "defaultValue": "https://files.readme.io/3440fe8-Budibase_Symbol_RGB_FullColour_cbqvha_1_z5cwq2_3.svg"
+      },
+      {
+        "type": "color",
+        "label": "Primary color",
+        "key": "primColor",
+        "defaultValue": "#000"
+      },
+      {
+        "type": "color",
+        "label": "Secondary color",
+        "key": "secColor",
+        "defaultValue": "#fff"
+      },
+      {
+        "type": "select",
+        "label": "Size",
+        "key": "size",
+        "defaultValue": 200,
+        "options": [
+          {
+            "label": "Small",
+            "value": 150
+          },
+          {
+            "label": "Medium",
+            "value": 200
+          },
+          {
+            "label": "Large",
+            "value": 250
+          },
+          {
+            "label": "X Large",
+            "value": 300
+          },
+          {
+            "label": "XX Large",
+            "value": 350
+          },
+          {
+            "label": "XXX Large",
+            "value": 400
+          }
+        ]
       }
     ]
   }
