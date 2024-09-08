@@ -1,38 +1,82 @@
 <script>
-  import { getContext } from "svelte"
-  import JsBarcode from "jsbarcode"
-  import { onMount, afterUpdate } from "svelte"
+  import { getContext } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
+  import JsBarcode from "jsbarcode";
+	import { createQrSvgString, createQrSvgDataUrl } from '@svelte-put/qr';
+  import '@spectrum-css/vars/dist/spectrum-global.css';
 
+  export let value;
+  export let showQR;
+  export let showValue;
+  export let customLogo;
+  export let size;
+  export let primColor;
 
-  export let value
-  export let showValue
+  const { styleable } = getContext("sdk");
+  const component = getContext("component");
 
-  const { styleable } = getContext("sdk")
-  const component = getContext("component")
-
-  let barcode; 
+  // BARCODES
+  let barcode;
+  let qrContainer;
 
   const generateBarcode = () => {
+    let barcodeSize = size / 100
     if (value) {
       JsBarcode("#barcode", value, {
         displayValue: showValue,
+        width: barcodeSize,
+        height: size,
+        lineColor: "black",
+        background: "white"
       });
     }
   };
 
   onMount(() => {
-    generateBarcode();
+    if (showQR) {
+  // Generate QR Code
+  console.log("generating QR code")
+    } else {
+      generateBarcode();
+    }
   });
 
   afterUpdate(() => {
-    generateBarcode();
+    if (showQR) {
+// Generate QR code
+console.log("generating QR code")
+    } else {
+      generateBarcode();
+    }
   });
-
-
 
 
 </script>
 
-<div use:styleable={$component.styles}>
-  <img id="barcode" alt="barcode {showValue ? value : ""}"/>
+<div class="overall" use:styleable={$component.styles}>
+  {#if value}
+    {#if showQR}
+    <div>
+      {@html createQrSvgString({
+        data: value, logo: customLogo, 
+        moduleFill: primColor, 
+        anchorOuterFill: primColor, 
+        anchorInnerFill: primColor, 
+        width: size, 
+        height: size
+        })}
+      <div style="word-wrap: break-word; overflow-wrap: break-word; width: {size}; text-align: center;">{showValue ? value : ""}</div>
+    </div>
+    {:else}
+    <div >
+      <img id="barcode" alt="barcode {value ? value : ""}"/>
+    </div>
+    {/if}
+  {:else}
+    <p>Please add a value to generate your {showQR ? "QR Code" : "Barcode"}</p>
+  {/if}
+
+
+
+  
 </div>

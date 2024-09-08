@@ -25,7 +25,7 @@
     js-tokens "^4.0.0"
     picocolors "^1.0.0"
 
-"@babel/runtime@^7.10.5":
+"@babel/runtime@^7.10.5", "@babel/runtime@^7.17.8":
   version "7.25.6"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.25.6.tgz"
   integrity sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==
@@ -109,6 +109,11 @@
   integrity sha512-/04dc3UIIoJgxz2klUSYtEu65LbvFcfr7qgPNpVI2h1Vd3CYUhmC28YqXktmYnftr6Z4W7YC8RVNNHM07RRe0A==
   dependencies:
     scim-patch "^0.8.1"
+
+"@castlenine/svelte-qrcode@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/@castlenine/svelte-qrcode/-/svelte-qrcode-2.2.0.tgz"
+  integrity sha512-0PbzjH86AQOPFomHD7FDxSzWlQC8MOfyvOfHS0kmRXNA2nz5+oOL9kjpE+7IywejCGIXFN3sZrBpvx9i6xsdeA==
 
 "@crownframework/svelte-error-boundary@^1.0.3":
   version "1.0.3"
@@ -375,6 +380,13 @@
   version "2.0.0"
   resolved "https://registry.npmjs.org/@sideway/pinpoint/-/pinpoint-2.0.0.tgz"
   integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
+
+"@svelte-put/qr@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/@svelte-put/qr/-/qr-1.2.1.tgz"
+  integrity sha512-VIAze6mCVWdiyq6xnMFhbD3dbTvz9CDFVN3lVkDvx6SYFcstgHuIyb7Pi3aJIr2ClDc4U+W2U+SGhFuQBskvBg==
+  dependencies:
+    qrcode-generator "^1.4.4"
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
@@ -2896,6 +2908,13 @@ pino@8.11.0:
     sonic-boom "^3.1.0"
     thread-stream "^2.0.0"
 
+polished@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/polished/-/polished-4.3.1.tgz"
+  integrity sha512-OBatVyC/N7SCW/FaDHrSd+vn0o5cS855TOmYi4OkdWUMSJCET/xip//ch8xGUvtr3i44X9LVyWwQlRMTN3pwSA==
+  dependencies:
+    "@babel/runtime" "^7.17.8"
+
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/possible-typed-array-names/-/possible-typed-array-names-1.0.0.tgz"
@@ -3414,6 +3433,11 @@ punycode@1.3.2:
   version "1.3.2"
   resolved "https://registry.npmjs.org/punycode/-/punycode-1.3.2.tgz"
   integrity sha512-RofWgt/7fL5wP1Y7fxE7/EmTLzQVnB0ycyibJ0OOHIlJqTNzglYFxVwETOcIoJqJmpDXJ9xImDv+Fq34F/d4Dw==
+
+qrcode-generator@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.npmjs.org/qrcode-generator/-/qrcode-generator-1.4.4.tgz"
+  integrity sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw==
 
 qs@^6.11.0:
   version "6.13.0"
@@ -4083,7 +4107,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-svelte@^3.49.0, svelte@>=3.5.0:
+svelte@^3.49.0, "svelte@^3.55.0 || ^4.0.0 || ^5.0.0", svelte@>=3.5.0, svelte@>=3.54.0:
   version "3.59.2"
   resolved "https://registry.npmjs.org/svelte/-/svelte-3.59.2.tgz"
   integrity sha512-vzSyuGr3eEoAtT/A6bmajosJZIUWySzY2CzB3w2pgPvnkUjGqlDnsNnA0PMO+mMAhuyMul6C2uuZzY6ELSkzyA==
