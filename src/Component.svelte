@@ -65,7 +65,7 @@ console.log("generating QR code")
         width: size, 
         height: size
         })}
-      <div style="word-wrap: break-word; overflow-wrap: break-word; width: {size};">{showValue ? value : ""}</div>
+      <div style="word-wrap: break-word; overflow-wrap: break-word; width: {size}; text-align: center;">{showValue ? value : ""}</div>
     </div>
     {:else}
     <div >
