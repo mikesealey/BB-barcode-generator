@@ -18,6 +18,7 @@
   // BARCODES
   let barcode;
   let qrContainer;
+  let convertedColour;
 
   const generateBarcode = () => {
     let barcodeSize = size / 100
@@ -50,7 +51,6 @@ console.log("generating QR code")
     }
   });
 
-
 </script>
 
 <div class="overall" use:styleable={$component.styles}>
@@ -68,15 +68,22 @@ console.log("generating QR code")
       <div style="word-wrap: break-word; overflow-wrap: break-word; width: {size}; text-align: center;">{showValue ? value : ""}</div>
     </div>
     {:else}
-    <div >
-      <img id="barcode" alt="barcode {value ? value : ""}"/>
+    <div class="barcode-container">
+      {#if customLogo}
+        <img src={customLogo} alt="logo" class="barcode-logo" style="height: {size}px;" />
+      {/if}
+      <img id="barcode" alt="barcode {value ? value : ""}" class="barcode-image"/>
     </div>
     {/if}
   {:else}
     <p>Please add a value to generate your {showQR ? "QR Code" : "Barcode"}</p>
   {/if}
-
-
-
-  
 </div>
+
+<style>
+.barcode-container {
+  display: flex;
+  align-items: center;
+}
+
+</style>
