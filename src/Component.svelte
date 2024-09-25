@@ -15,16 +15,12 @@
   const { styleable } = getContext("sdk");
   const component = getContext("component");
 
-  // BARCODES
-  let barcode;
-  let qrContainer;
-  let convertedColour;
-
   const generateBarcode = () => {
+    console.log(size)
     let barcodeSize = size / 100
     if (value) {
       JsBarcode("#barcode", value, {
-        displayValue: showValue,
+        displayValue: false,
         width: barcodeSize,
         height: size,
         lineColor: "black",
@@ -34,19 +30,13 @@
   };
 
   onMount(() => {
-    if (showQR) {
-  // Generate QR Code
-  console.log("generating QR code")
-    } else {
+    if (!showQR) {
       generateBarcode();
     }
   });
 
   afterUpdate(() => {
-    if (showQR) {
-// Generate QR code
-console.log("generating QR code")
-    } else {
+    if (!showQR) {
       generateBarcode();
     }
   });
@@ -56,7 +46,8 @@ console.log("generating QR code")
 <div class="overall" use:styleable={$component.styles}>
   {#if value}
     {#if showQR}
-    <div>
+    
+    <div class="qr-container">
       {@html createQrSvgString({
         data: value, logo: customLogo, 
         moduleFill: primColor, 
@@ -65,14 +56,22 @@ console.log("generating QR code")
         width: size, 
         height: size
         })}
-      <div style="word-wrap: break-word; overflow-wrap: break-word; width: {size}; text-align: center;">{showValue ? value : ""}</div>
+      <div class="qr-value" style="color: {primColor}; max-width: {size}px;">{showValue ? value : ""}</div>
     </div>
     {:else}
     <div class="barcode-container">
-      {#if customLogo}
-        <img src={customLogo} alt="logo" class="barcode-logo" style="height: {size}px;" />
-      {/if}
-      <img id="barcode" alt="barcode {value ? value : ""}" class="barcode-image"/>
+        <div class="logo-and-barcode">
+          {#if customLogo}
+            <img src={customLogo} alt="logo" class="custom-logo" style="height: {size}px;"/>
+          {/if}
+          <img id="barcode" alt="barcode {value ? value : ""}" class="barcode-image"/>
+        </div>
+        {#if showValue}
+          <div class="barcode-value">
+            {value}
+          </div>
+        {/if}
+
     </div>
     {/if}
   {:else}
@@ -81,9 +80,43 @@ console.log("generating QR code")
 </div>
 
 <style>
-.barcode-container {
+.overall {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.barcode-container {
+  background-color: white;
+}
+
+.logo-and-barcode {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
+
+.barcode-value {
+  color: black;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.custom-logo {
+  padding-left: 10px;
+  transform: rotate(90)
+}
+
+.qr-value {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 </style>

@@ -41,7 +41,7 @@
         "type": "select",
         "label": "Size",
         "key": "size",
-        "defaultValue": 200,
+
         "options": [
           {
             "label": "X Small",
